@@ -19,6 +19,14 @@ document.getElementById('currencyForm').addEventListener('submit', function(even
                 } else if (fromCurrency === 'EUR' && toCurrency === 'RWF') {
                     conversionRate = 1724.14; // Example rate: 1 EUR = 1724.14 RWF
                 }
-            const convertedAmount = amount * conversionRate;
-            document.getElementById('result').textContent = `${convertedAmount.toFixed(2)} ${toCurrency}`;
+                
+            let convertedAmount = amount * conversionRate;
+            if (amount > 0) {
+                document.getElementById('result').textContent = `${convertedAmount.toFixed(2)} ${toCurrency}`;
+                 document.getElementById('result').style.color = 'black'
+            } else {
+               document.getElementById('result').textContent = "Invalid amount!" 
+               document.getElementById('result').style.color = 'crimson'
+            }
+            
         });
