@@ -133,7 +133,7 @@
         <button type="submit">Convert</button>
         
         <div id="result">
-                <!-- Conversion result will be displayed here -->
+                
         </div>
     </form>
     <script>
@@ -143,20 +143,20 @@
             const amount = document.getElementById('amount').value;
             const fromCurrency = document.getElementById('fromCurrency').value;
             const toCurrency = document.getElementById('toCurrency').value;
-            let conversionRate = 1; // Default for same currency
+            let conversionRate = 1; 
             if (fromCurrency === 'USD' && toCurrency === 'RWF') {
-                conversionRate = 1462; // Example rate: 1 USD = 1000 RWF
+                conversionRate = 1462; 
             } else if (fromCurrency === 'RWF' && toCurrency === 'USD') {
-                conversionRate = 0.00068389; // Example rate: 1 RWF = 0.001 USD
+                conversionRate = 0.00068389; 
             }
                 else if (fromCurrency === 'USD' && toCurrency === 'EUR') {
-                    conversionRate = 0.85; // Example rate: 1 USD = 0.85 EUR
+                    conversionRate = 0.85; 
                 } else if (fromCurrency === 'EUR' && toCurrency === 'USD') {
-                    conversionRate = 1.18; // Example rate: 1 EUR = 1.18 USD
+                    conversionRate = 1.18; 
                 } else if (fromCurrency === 'RWF' && toCurrency === 'EUR') {
-                    conversionRate = 0.00058; // Example rate: 1 RWF = 0.00058 EUR
+                    conversionRate = 0.00058; 
                 } else if (fromCurrency === 'EUR' && toCurrency === 'RWF') {
-                    conversionRate = 1724.14; // Example rate: 1 EUR = 1724.14 RWF
+                    conversionRate = 1724.14; 
                 }
             const convertedAmount = amount * conversionRate;
             document.getElementById('result').textContent = `${convertedAmount.toFixed(2)} ${toCurrency}`;
