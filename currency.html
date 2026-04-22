@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ-COMPANY | Currency exchange system</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+        }
+        .top {
+            background-color: #00008B;
+            padding: 150px 20px;
+          
+        }
+        h1, h2 {
+            color: white;
+            text-align: center;
+            transform: translateY(-50%);
+        }
+        form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto auto;
+            gap: 50px;
+            align-items: start;
+            background-color: #fff;
+            padding: 40px 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 85%;
+            max-width: 950px;
+        }
+        form > div:first-child {
+            display: flex;
+            gap: 30px;
+            align-items: flex-end;
+            grid-column: 1;
+            grid-row: 1;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 140px;
+        }
+        
+        input, select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            flex: 1;
+            min-width: 100px;
+            font-size: 1em;
+        }
+        select {
+            background-color: white;
+
+        }
+        button {
+            padding: 12px 30px;
+            background-color: #00008B;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1em;
+            font-weight: bold;
+            grid-column: 1;
+            grid-row: 2;
+            width: fit-content;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+            text-align: right;
+            min-width: 150px;
+            grid-column: 2;
+            grid-row: 1 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>XYZ-COMPANY</h1>
+        <h2>CURRENCY EXCHANGE PLATFORM</h2>
+    </div>
+    <form id="currencyForm">
+        <div style="display: flex; gap: 30px; align-items: flex-end;">
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" required>
+            </div>
+            <div class="form-group">
+                <label for="fromCurrency">From:</label>
+                <select id="fromCurrency" name="fromCurrency" required>
+                    <option value="USD">USD - $</option>
+                    <option value="RWF">RWF</option>  
+                    <option value="EUR">EUR</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="toCurrency">To:</label>
+                <select id="toCurrency" name="toCurrency" required>
+                    <option value="USD">USD</option>
+                    <option value="RWF">Rwanda -RWF</option> 
+                    <option value="EUR">EUR</option> 
+                </select>
+            </div>
+        </div>
+        <button type="submit">Convert</button>
+        
+        <div id="result">
+                <!-- Conversion result will be displayed here -->
+        </div>
+    </form>
+    <script>
+        document.getElementById('currencyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const amount = document.getElementById('amount').value;
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+            let conversionRate = 1; // Default for same currency
+            if (fromCurrency === 'USD' && toCurrency === 'RWF') {
+                conversionRate = 1462; // Example rate: 1 USD = 1000 RWF
+            } else if (fromCurrency === 'RWF' && toCurrency === 'USD') {
+                conversionRate = 0.00068389; // Example rate: 1 RWF = 0.001 USD
+            }
+                else if (fromCurrency === 'USD' && toCurrency === 'EUR') {
+                    conversionRate = 0.85; // Example rate: 1 USD = 0.85 EUR
+                } else if (fromCurrency === 'EUR' && toCurrency === 'USD') {
+                    conversionRate = 1.18; // Example rate: 1 EUR = 1.18 USD
+                } else if (fromCurrency === 'RWF' && toCurrency === 'EUR') {
+                    conversionRate = 0.00058; // Example rate: 1 RWF = 0.00058 EUR
+                } else if (fromCurrency === 'EUR' && toCurrency === 'RWF') {
+                    conversionRate = 1724.14; // Example rate: 1 EUR = 1724.14 RWF
+                }
+            const convertedAmount = amount * conversionRate;
+            document.getElementById('result').textContent = `${convertedAmount.toFixed(2)} ${toCurrency}`;
+        });
+    </script>
+</body>
+</html>
