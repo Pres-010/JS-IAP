@@ -75,7 +75,14 @@ calcButtons.forEach(button => {
                     displayScreen.textContent = `${firstNumber} ${operator} `;
                 }
                 break;
-
+            case "+/-":
+                if (firstNumber === -firstNumber) {
+                    firstNumber = +firstNumber
+                } else {
+                    firstNumber = -firstNumber
+                    displayScreen.textContent = `${firstNumber} ${operator} ${secondNumber}`
+                }
+                break;
             // ---------------- NUMBERS ----------------
             default:
                 if (operator === "") {
