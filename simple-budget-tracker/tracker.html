@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple JS Budget Tracker</title>
+    <link rel="stylesheet" href="./tracker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="cinzel-decorative-regular">
+    <h1>Simple Budget Tracker <i class="fa-solid fa-wallet"></i></h1>
+    <form action="">
+    <label for="Description">Description: </label>
+    <input type="text" name="Description" id="description" placeholder="Enter description">
+    <label for="Amount">Amount: </label>
+    <input type="number" name="Amount" id="amount" placeholder="Enter amount">
+    <label for="Class">Class: </label>
+    <select name="Class" id="Class">
+        <option value="Income" class="income-option">Income</option>
+        <option value="Expense" class="expense-option">Expense</option>
+    </select>
+    <button type="submit" id="submit">Submit</button>
+    </form>
+    <div class="section">
+     <h2>Transactions</h2>
+     <ul class="transactions">
+        <!-- <li class="transaction">Food: 20,000 RWF</li> -->
+     </ul>
+     <div class="totals">
+        <p style="font-size: large;">Totals: </p>
+     <p id="income"></p>
+     <p id="expenses"></p>
+     <p id="balance"></p>
+     </div>
+    </div>
+    <script src="./tracker.js"></script>
+    
+</body>
+</html>
