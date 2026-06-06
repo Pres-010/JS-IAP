@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --background: #03303de7;
+    --primary: #b4dbec;
+    --income: #0f9540;
+    --expense: #ef4444;
+    --accent: #c0e1e3;
+
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--background);
+    color: var(--primary);
+}
+form {
+    display: flex;
+    width: auto;
+    height: 250px;
+    flex-direction: column;
+    background: #01232de7;
+    font-size: 20px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+}
+form input, form label, form select {
+    width: 250px;
+    align-self: center;
+    margin: 10px;
+    
+}
+form label {
+    margin: 2px;
+}
+form input {
+    height: 40px;
+}
+form input:focus, form input:hover, select:hover {
+    outline-color: var(--accent);
+    border: 2px solid var(--accent);
+    box-shadow: 2px 0 8px var(--accent);
+}
+button {
+    width: 150px;
+    align-self: center;
+    background: var(--accent);
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 2px 0 8px var(--accent);
+}
+button:hover {
+    box-shadow: 2px 0 15px var(--accent);
+}
+h1 {
+    text-align: center;
+}
+.totals {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.section {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.section h2 {
+    font-size: 35px;
+}
+.transactions {
+    list-style-type: decimal;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+#income {
+    color: var(--income);
+    font-size: 18px;
+}
+#expenses {
+    font-size: 18px;
+    color: var(--expense);
+}
+#balance {
+    font-size: 18px;
+    color: var(--accent);
+}
+.totals p {
+    justify-self: center;
+    margin-left: 10px;
+}
+.cinzel-decorative-regular {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cinzel-decorative-bold {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.cinzel-decorative-black {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+.delete {
+    background: var(--expense);
+    color: var(--accent);
+    margin: 10px;
+    border-radius: 6px;
+    box-shadow: none;
+}
+.update {
+    background: var(--primary);
+    color: var(--background);
+    border-radius: 6px;
+    box-shadow: none;
+}
